@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head >
+
+    <title>ddadqw</title></head>
+
+<body>
+
+<div class="container">
+    <div>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>음식이름</th>
+                <th>음식의 가격</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="food : ${foods}">
+                <td th:text="${food.id}"></td>
+                <td th:text="${food.foodName}"></td>
+                <td th:text="${food.foodPrice}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+</div> <!-- /container -->
+
+</body>
+</html>
