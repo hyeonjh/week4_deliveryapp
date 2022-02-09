@@ -36,6 +36,7 @@ dependencies {
     // Thymeleaf 에서 springsecurity 의존성 설정
     implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
 
+
 }
 
 tasks.named('test') {
