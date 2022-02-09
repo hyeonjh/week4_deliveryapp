@@ -5,6 +5,7 @@ import com.sparta.week4_deliveryapp.dto.FoodRequestDto;
 import com.sparta.week4_deliveryapp.model.Food;
 import com.sparta.week4_deliveryapp.service.FoodService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,10 +21,10 @@ public class FoodRestController {
     }
 
     @PostMapping("/restaurant/{restaurantId}/food/register")
-    public Food registerFood(@PathVariable Long restaurantId,@RequestBody List<FoodRequestDto> requestDto){
+    public void registerFood(@PathVariable Long restaurantId, @RequestBody List<FoodRequestDto> requestDto){
 
-        Food food = foodService.registerFood(restaurantId,requestDto);
-        return food;
+        List<Food> food = foodService.registerFood(restaurantId,requestDto);
+
     }
 
     @GetMapping("/restaurant/{restaurantId}/foods")
