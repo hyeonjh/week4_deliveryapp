@@ -1,7 +1,6 @@
 package com.sparta.week4_deliveryapp.model;
 
 import com.sparta.week4_deliveryapp.dto.RestaurantRequestDto;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

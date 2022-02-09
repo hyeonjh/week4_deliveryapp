@@ -21,9 +21,9 @@ public class Food {
     private Long id;
 
     @Column(nullable = false)
-    private String foodName;
+    private String name;
     @Column(nullable = false)
-    private Long foodPrice;
+    private Long price;
 
     @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "restaurant_id",nullable = false)
@@ -32,12 +32,14 @@ public class Food {
 
 
 
-    public Food (String foodName,Long foodPrice,Restaurant restaurant){
-        this.foodName = foodName;
-        this.foodPrice = foodPrice;
+    public Food (String name,Long price,Restaurant restaurant){
+        this.name = name;
+        this.price = price;
         this.restaurant = restaurant;
 
     }
+
+
 
 
 //    public Food(String foodName, Long foodPrice, Long restaurantId) {
