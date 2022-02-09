@@ -1,17 +1,15 @@
 package com.sparta.week4_deliveryapp.dto;
 
+
 import lombok.Getter;
 import lombok.Setter;
 
-
-
 @Getter
 @Setter
+public class FoodOrderDto {
 
-public class FoodRequestDto {
-    private String name;
-    private int price;
-
+    private Long id;
+    private int quantity;
 
 
 

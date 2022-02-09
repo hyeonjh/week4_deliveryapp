@@ -20,10 +20,10 @@ public class FoodRestController {
     }
 
     @PostMapping("/restaurant/{restaurantId}/food/register")
-    public Food registerFood(@PathVariable Long restaurantId,@RequestBody List<FoodRequestDto> requestDto){
+    public void registerFood(@PathVariable Long restaurantId, @RequestBody List<FoodRequestDto> requestDto){
 
-        Food food = foodService.registerFood(restaurantId,requestDto);
-        return food;
+        List<Food> food = foodService.registerFood(restaurantId,requestDto);
+
     }
 
     @GetMapping("/restaurant/{restaurantId}/foods")

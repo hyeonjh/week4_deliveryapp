@@ -26,6 +26,11 @@ public class Restaurant {
     @Column(nullable = false)
     private Long deliveryFee;
 
+//    @JsonIgnore
+//    @OneToMany(mappedBy = "restaurant")
+//    private List<Order> orders = new ArrayList<>();
+
+
     public Restaurant(String name, Long minOrderPrice, Long deliveryFee){
         this.name = name;
         this.minOrderPrice = minOrderPrice;

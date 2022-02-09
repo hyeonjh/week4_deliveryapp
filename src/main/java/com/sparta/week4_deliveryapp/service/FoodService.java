@@ -63,13 +63,14 @@ public class FoodService {
 //        return (List<Food>) foodRepository.save(food);
 //    }
 
-    public Food registerFood(Long restaurantId, List<FoodRequestDto> requestDto) {
+    public List<Food> registerFood(Long restaurantId, List<FoodRequestDto> requestDto) {
 //
 //        for (Food food   : requestDto)
-        List<Food> foodList = new ArrayList<>();
+
         Restaurant restaurant = restaurantRepository.findById(restaurantId).orElseThrow(
                 ()-> new NullPointerException("음식점 아이디가 존재하지 않습니다.")
         );
+        List<Food> foodList = new ArrayList<>();
         for (FoodRequestDto foodRequestDto : requestDto) {
 
             Food food = new Food(foodRequestDto.getName(),foodRequestDto.getPrice(),restaurant);
@@ -82,16 +83,23 @@ public class FoodService {
                 throw new IllegalArgumentException("100원단위로만 입력하세요");
             }
 
-            Food food1 = foodRepository.findByName(foodRequestDto.getName());
-            if (Objects.equals(food1.getName(), food.getName())){
-                throw new IllegalArgumentException("같은 음식점 내에서는 음식 이름이 중복될 수 없음 ");
-            }
+
+//            if(!foodRequestDto.getName().isEmpty()){
+//                Food food1 = foodRepository.findByName(foodRequestDto.getName());
+//            if ((food1.getName()).equals(food.getName())){
+//                throw new IllegalArgumentException("같은 음식점 내에서는 음식 이름이 중복될 수 없음 ");
+//            }
+//            }
+//            Food food1 = foodRepository.findByName(foodRequestDto.getName());
+//            if ((food1.getName()).equals(food.getName())){
+//                throw new IllegalArgumentException("같은 음식점 내에서는 음식 이름이 중복될 수 없음 ");
+//            }
 //            foodRepository.save(food);
             foodList.add(food);
         }
 //        List<Food> savedFoodList =
         List<Food> savedFoodList = foodRepository.saveAll(foodList);
-        return (Food) savedFoodList;
+        return savedFoodList;
 
 //        return foodRepository.save(food);
     }
@@ -105,7 +113,7 @@ public class FoodService {
                 ()->new NullPointerException("해당 음식점의 id가 없습니다.")
         );
 
-        return foodRepository.findAllByRestaurant(restaurantId);
+        return foodRepository.findAllByRestaurant(restaurant);
 
 
     }

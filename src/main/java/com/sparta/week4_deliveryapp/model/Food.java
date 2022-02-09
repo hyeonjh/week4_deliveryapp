@@ -1,7 +1,6 @@
 package com.sparta.week4_deliveryapp.model;
 
-import com.sparta.week4_deliveryapp.dto.FoodRequestDto;
-import lombok.Builder;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -23,7 +22,7 @@ public class Food {
     @Column(nullable = false)
     private String name;
     @Column(nullable = false)
-    private Long price;
+    private int price;
 
     @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "restaurant_id",nullable = false)
@@ -32,7 +31,7 @@ public class Food {
 
 
 
-    public Food (String name,Long price,Restaurant restaurant){
+    public Food (String name,int price,Restaurant restaurant){
         this.name = name;
         this.price = price;
         this.restaurant = restaurant;
