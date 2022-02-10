@@ -5,6 +5,7 @@ import com.sparta.week4_deliveryapp.dto.FoodRequestDto;
 import com.sparta.week4_deliveryapp.model.Food;
 import com.sparta.week4_deliveryapp.service.FoodService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
